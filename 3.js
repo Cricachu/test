@@ -50,29 +50,18 @@ for (var i = 0; i < 20; i++) {
 	// console.log(string);
 }
 
-var colors = [
-	"yellow",
-	"red",
-	"grey",
-	"yellow",
-	"red",
-	"grey",
-	"yellow",
-	"red",
-	"grey",
-	"yellow"
-];
+var colors = ["yellow", "red", "grey", "yellow", "red", "grey", "yellow", "red", "grey", "yellow"];
 
-// for (var i = 0; i < array.length; i++) {
-// 	if (colors[i] === "grey") {
-// 		continue;
-// 	}
-// 	var cat = array[i];
-// 	cat.color = colors[i];
-// 	array[i] = cat;
-// }
+for (var i = 0; i < array.length; i++) {
+	if (colors[i] === "grey") {
+		continue;
+	}
+	var cat = array[i];
+	cat.color = colors[i];
+	array[i] = cat;
+}
 
-// console.log(array);
+console.log(array);
 
 for (var i = 0; i < array.length; i++) {
 	if ((i + 1) % 2 == 0) {
@@ -92,7 +81,7 @@ for (var i = 0; i < 100; i++) {
 	}
 }
 
-// console.log(result);
+console.log(result);
 
 var sumResult = 0;
 for (var i = 0; i < 1000000; i++) {
@@ -136,3 +125,50 @@ console.log(count);
 // Print out the avarage score, maximum and minimum.
 // After that, count and print out the number of Good students, average students and bad students
 // knowing that Good students has score > 8, average is lower than 8 and greater than 5, and bad students are lower than 5.
+
+var studentArray = [10, 9, 2, 5, 4, 6, 8, 4, 3, 6, 8, 3, 7, -2, 90, 3, 2, 10, 2, 8, 9, 7, 10];
+var sumScore = 0;
+var maxScore = studentArray[0];
+var minScore = studentArray[0];
+
+for (var i = 0; i < studentArray.length; i++) {
+	sumScore = sumScore + studentArray[i];
+	if (maxScore < studentArray[i]) {
+		maxScore = studentArray[i];
+	}
+	if (minScore > studentArray[i]) {
+		minScore = studentArray[i];
+	}
+}
+
+var averageScore = sumScore / studentArray.length;
+console.log(averageScore);
+console.log(maxScore);
+console.log(minScore);
+
+var countGood = 0;
+var countBad = 0;
+var countAverage = 0;
+var error = [];
+
+for (var i = 0; i < studentArray.length; i++) {
+	if (studentArray[i] >= 8) {
+		countGood = countGood + 1;
+	}
+	if (studentArray[i] < 5) {
+		countBad = countBad + 1;
+	}
+	if (5 <= studentArray[i] && studentArray[i] < 8) {
+		countAverage = countAverage + 1;
+	}
+
+	if (studentArray[i] < 0 || studentArray[i] > 10) {
+		error.push(i);
+	}
+}
+
+console.log(countGood);
+console.log(countAverage);
+console.log(countBad);
+console.log(error);
+// var countAverage = studentArray.length-(countBad + countGood);
